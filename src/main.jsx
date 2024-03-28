@@ -32,6 +32,10 @@ const AppRouter = createBrowserRouter([
         path: "/insights",
         element: <Insights />,
       },
+      {
+        path: "/signin",
+        element: <Insights />,
+      },
     ],
   },
 ]);
