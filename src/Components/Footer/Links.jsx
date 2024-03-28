@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Links = (props) => {
   return (
     <div>
-      <h1 className="text-[#565e6e] mb-2">
+      <h1 className="text-[#c4bebe] mb-2">
         <Link to={props.to}>{props.item}</Link>
       </h1>
     </div>

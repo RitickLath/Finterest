@@ -2,7 +2,7 @@ import Links from "./Links";
 
 const Footer = () => {
   return (
-    <div className="bg-black px-12 pb-12">
+    <div className="bg-gradient-to-r from-[#111111] to-[#0c0c0c] px-12 pb-12">
       <img
         className="w-[150px] py-2 mr-[25%] lg:mr-[30%]"
         src="\Images\Finterest.png"
