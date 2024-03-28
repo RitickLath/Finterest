@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div>
-      <div className="bg-black text-white flex items-center justify-between px-12">
+      <div className="bg-gradient-to-r from-[#111111] to-[#0c0c0c] text-white flex items-center justify-between px-12">
         <img
           className="w-[80px] py-2 mr-[25%] lg:mr-[30%]"
           src="\Images\Logo.png"

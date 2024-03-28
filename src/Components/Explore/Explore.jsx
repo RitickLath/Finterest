@@ -5,7 +5,7 @@ const Explore = () => {
   const [stock, setStock] = useState("hcl");
 
   return (
-    <div className="flex flex-col items-center justify-center bg-black text-white px-20 w-[100%] h-[86vh] ">
+    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-[#111111] to-[#0c0c0c] text-white px-20 w-[100%] h-[86vh] ">
       <img
         className="w-[100%] sm:w-[90%] md:w-[70%] lg:w-[40%]"
         src="\Images\Finterest.png"
@@ -24,7 +24,7 @@ const Explore = () => {
       >
         <input
           ref={inputdata}
-          className="bg-[#0e1116] outline-none w-[100%] sm:w-[90%] md:w-[70%] lg:w-[50%] mb-6 px-4 py-3 rounded-sm"
+          className="bg-[#242424] outline-none w-[100%] sm:w-[90%] md:w-[70%] lg:w-[50%] mb-6 px-4 py-3 rounded-md"
           type="text"
           placeholder="Search for a company"
           name=""
@@ -35,22 +35,22 @@ const Explore = () => {
 
       <div>
         <div className="grid grid-cols-4 gap-2">
-          <button className="px-2 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-gray-700 hover:text-white focus:outline-none focus:border-[#0e1116]">
+          <button className="px-2 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[#0e1116]">
             Tata Motors
           </button>
-          <button className="px-3 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-gray-700 hover:text-white focus:outline-none focus:border-[#0e1116]">
+          <button className="px-3 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[#0e1116]">
             Infosys
           </button>
-          <button className="px-2 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-gray-700 hover:text-white focus:outline-none focus:border-[#0e1116]">
+          <button className="px-2 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[#0e1116]">
             Hindustan Unilever
           </button>
-          <button className="px-3 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-gray-700 hover:text-white focus:outline-none focus:border-[#0e1116]">
+          <button className="px-3 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[#0e1116]">
             Reliance
           </button>
-          <button className="px-3 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-gray-700 hover:text-white focus:outline-none focus:border-[#0e1116]">
+          <button className="px-3 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[#0e1116]">
             Maruti Suzuki
           </button>
-          <button className="px-3 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-gray-700 hover:text-white focus:outline-none focus:border-[#0e1116]">
+          <button className="px-3 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[#0e1116]">
             HDFC Bank
           </button>
         </div>
