@@ -34,23 +34,23 @@ const Explore = () => {
       </form>
 
       <div>
-        <div className="grid grid-cols-4 gap-2">
-          <button className="px-2 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[#0e1116]">
+        <div className="flex flex-wrap justify-center gap-2 sm:w-[80%] lg:w-[80%]">
+          <button className="px-2 py-1 border border-[white] rounded-md text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]">
             Tata Motors
           </button>
-          <button className="px-3 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[#0e1116]">
+          <button className="px-3 py-1 border border-[white] rounded-md border-1 text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]">
             Infosys
           </button>
-          <button className="px-2 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[#0e1116]">
+          <button className="px-2 py-1 border border-[white] rounded-md border-1 text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]">
             Hindustan Unilever
           </button>
-          <button className="px-3 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[#0e1116]">
+          <button className="px-3 py-1 border border-[white] rounded-md border-1 text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]">
             Reliance
           </button>
-          <button className="px-3 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[#0e1116]">
+          <button className="px-3 py-1 border border-[white] rounded-md border-1 text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]">
             Maruti Suzuki
           </button>
-          <button className="px-3 py-1 border border-[#0e1116] rounded-md text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[#0e1116]">
+          <button className="px-3 py-1 border border-[white] rounded-md border-1 text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]">
             HDFC Bank
           </button>
         </div>
