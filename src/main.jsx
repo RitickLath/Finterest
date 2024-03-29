@@ -36,11 +36,7 @@ const AppRouter = createBrowserRouter([
       },
       {
         path: "/tools",
-        element: (
-          <>
-            <Outlet />
-          </>
-        ),
+
         children: [
           {
             path: "",
