@@ -8,7 +8,7 @@ function Layout() {
     <>
       <React.StrictMode>
         <Navbar />
-        <Outlet />
+        {<Outlet /> || <div />}
         <hr />
         <Footer />
       </React.StrictMode>
