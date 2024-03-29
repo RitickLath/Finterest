@@ -5,7 +5,7 @@ const Explore = () => {
   const [stock, setStock] = useState("");
 
   return (
-    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-[#111111] to-[#0c0c0c] text-white px-4 w-[100%] pb-16 ">
+    <div className="overflow-hidden flex flex-col pt-8 lg:pt-12 items-center justify-center bg-gradient-to-r from-[#111111] to-[#0c0c0c] text-white px-4 w-[100%] pb-16 ">
       <img
         className="w-[100%] sm:w-[90%] md:w-[70%] lg:w-[40%]"
         src="\Images\Finterest.png"
