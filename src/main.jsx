@@ -36,46 +36,51 @@ const AppRouter = createBrowserRouter([
       },
       {
         path: "/tools",
-        element: <Outlet />,
+        element: (
+          <>
+            <Outlet />
+          </>
+        ),
         children: [
           {
-            path: "/tools",
+            path: "",
             element: <Tools />,
           },
+
           {
-            path: "/tools/sip",
+            path: "sip",
             element: <Sip />,
           },
           {
-            path: "/tools/mf",
+            path: "mf",
             element: <MF />,
           },
           {
-            path: "/tools/ppf",
+            path: "ppf",
             element: <PPF />,
           },
           {
-            path: "/tools/fd",
+            path: "fd",
             element: <FD />,
           },
           {
-            path: "/tools/emi",
+            path: "emi",
             element: <EMI />,
           },
           {
-            path: "/tools/si",
+            path: "si",
             element: <SI />,
           },
           {
-            path: "/tools/ci",
+            path: "ci",
             element: <CI />,
           },
           {
-            path: "/tools/gratuity",
+            path: "gratuity",
             element: <Gratuity />,
           },
           {
-            path: "/tools/inflation",
+            path: "inflation",
             element: <Inflation />,
           },
         ],

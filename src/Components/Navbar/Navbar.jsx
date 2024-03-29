@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="bg-black text-white flex items-center justify-between px-12 overflow-hidden">
         <img
           className="w-[85px] py-2 mr-[25%] lg:mr-[30%]"
-          src="public\Images\logo1.png"
+          src="public\Images\logo.png"
           alt=""
         />
         {/* for all link apply hidden */}
