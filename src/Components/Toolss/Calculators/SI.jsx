@@ -23,7 +23,7 @@ const Si = () => {
   };
 
   return (
-    <div className="w-full h-screen bg-gradient-to-r from-[#111111] to-[#0c0c0c] text-white px-4 sm:px-16 pt-8 pb-8">
+    <div className="w-full bg-gradient-to-r from-[#111111] to-[#0c0c0c] text-white px-4 sm:px-16 pt-8 pb-16">
       <h1 className="font-semibold text-3xl text-white mb-4">
         Simple Interest Calculator
       </h1>

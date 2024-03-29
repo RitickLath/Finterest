@@ -13,13 +13,13 @@ const Navbar = () => {
           alt=""
         />
         {/* for all link apply hidden */}
-        <Link className="px-2 hidden sm:flex lg:flex md:flex" to="/explore">
+        <Link className="px-2 sm:flex lg:flex md:flex" to="/explore">
           Explore
         </Link>
         <Link className="px-2  hidden sm:flex lg:flex md:flex" to="/discover">
           Discover
         </Link>
-        <Link className="px-2  hidden sm:flex lg:flex md:flex" to="/tools">
+        <Link className="px-2 sm:flex lg:flex md:flex" to="/tools">
           Tools
         </Link>
         <Link className="px-2  hidden sm:flex lg:flex md:flex" to="/insights">
