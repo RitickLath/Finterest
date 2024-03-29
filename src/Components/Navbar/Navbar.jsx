@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-// remove overflow as hidden
+// remove overflow as
 
 const Navbar = () => {
   return (
@@ -11,20 +11,20 @@ const Navbar = () => {
           src="\Images\Logo.png"
           alt=""
         />
-
-        <Link className="px-2 hidden lg:flex md:flex" to="/explore">
+        {/* for all link apply hidden */}
+        <Link className="px-2  lg:flex md:flex" to="/explore">
           Explore
         </Link>
-        <Link className="px-2 hidden lg:flex md:flex" to="/discover">
+        <Link className="px-2  lg:flex md:flex" to="/discover">
           Discover
         </Link>
-        <Link className="px-2 hidden lg:flex md:flex" to="/tools">
+        <Link className="px-2  lg:flex md:flex" to="/tools">
           Tools
         </Link>
-        <Link className="px-2 hidden lg:flex md:flex" to="/insights">
+        <Link className="px-2  lg:flex md:flex" to="/insights">
           Insights
         </Link>
-        <Link className=" hidden lg:flex md:flex" to="/signin">
+        <Link className="  lg:flex md:flex" to="/signin">
           SignIn/SignUp{" "}
         </Link>
       </div>
