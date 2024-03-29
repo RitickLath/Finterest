@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 
 const Explore = () => {
   const inputdata = useRef();
-  const [stock, setStock] = useState("hcl");
+  const [stock, setStock] = useState("hc");
 
   return (
     <div className="flex flex-col items-center justify-center bg-gradient-to-r from-[#111111] to-[#0c0c0c] text-white px-4 w-[100%] pb-16 ">
