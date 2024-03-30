@@ -14,7 +14,7 @@ function Layout() {
         <ArrayContext.Provider value={{ array, setArray }}>
           <Navbar />
           <Outlet />
-          <hr />
+          <hr className="border-gray-800 shadow-md" />
           <Footer />
         </ArrayContext.Provider>
       </React.StrictMode>
