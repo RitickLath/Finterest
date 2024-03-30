@@ -1,10 +1,12 @@
 import { useState } from "react";
 import InputBox from "../InputBox";
+import RightSide from "../Calculators/RightSide";
 
 const Sip = () => {
   const [monthlyInvestment, setMonthlyInvestment] = useState("");
   const [expectedReturn, setExpectedReturn] = useState("");
   const [time, setTime] = useState("");
+
   // Solution value
   const [investedAmount, setInvestedAmount] = useState(0);
   const [estReturn, setEstReturn] = useState(0);
@@ -31,49 +33,61 @@ const Sip = () => {
 
   return (
     <div className="w-full bg-gradient-to-r from-[#111111] to-[#0c0c0c] text-white px-4 sm:px-16 pt-8 pb-16">
-      <h1 className="font-semibold text-3xl text-white mb-4">SIP Calculator</h1>
-      <div className="grid gap-6">
-        <InputBox
-          labelText="Monthly Investment"
-          value={monthlyInvestment}
-          setValue={setMonthlyInvestment}
-          placeholder="$"
-          type="number"
-        />
-        <InputBox
-          labelText="Expected Return Rate (p.a)"
-          value={expectedReturn}
-          setValue={setExpectedReturn}
-          placeholder="%"
-          type="number"
-        />
-        <InputBox
-          labelText="Time Period"
-          value={time}
-          setValue={setTime}
-          placeholder="Yr"
-          type="number"
-        />
+      <div className="flex">
+        {/* Left Div */}
+        <div className="w-full lg:w-[50%]">
+          <h1 className="font-semibold text-3xl text-white mb-4">
+            SIP Calculator
+          </h1>
+          <div className="grid gap-6">
+            <InputBox
+              labelText="Monthly Investment"
+              value={monthlyInvestment}
+              setValue={setMonthlyInvestment}
+              placeholder="$"
+              type="number"
+            />
+            <InputBox
+              labelText="Expected Return Rate (p.a)"
+              value={expectedReturn}
+              setValue={setExpectedReturn}
+              placeholder="%"
+              type="number"
+            />
+            <InputBox
+              labelText="Time Period"
+              value={time}
+              setValue={setTime}
+              placeholder="Yr"
+              type="number"
+            />
+          </div>
+          <div className="mt-8">
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
+              onClick={calculateSip}
+            >
+              Calculate
+            </button>
+          </div>
+          <div className="mt-8">
+            <h2 className="text-lg text-white mb-2">
+              Invested Amount: $ {investedAmount}
+            </h2>
+            <h2 className="text-lg text-white mb-2">
+              Estimated Return: $ {estReturn}
+            </h2>
+            <h2 className="text-lg text-white">
+              Total Value: $ {investedAmount + estReturn}
+            </h2>
+          </div>
+        </div>
+        {/* Right Div */}
+        <RightSide />
       </div>
-      <div className="mt-8">
-        <button
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-          onClick={calculateSip}
-        >
-          Calculate
-        </button>
-      </div>
-      <div className="mt-8">
-        <h2 className="text-lg text-white mb-2">
-          Invested Amount: $ {investedAmount}
-        </h2>
-        <h2 className="text-lg text-white mb-2">
-          Estimated Return: $ {estReturn}
-        </h2>
-        <h2 className="text-lg text-white">
-          Total Value: $ {investedAmount + estReturn}
-        </h2>
-      </div>
+
+      {/* Info about SIP */}
+      <div></div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import InputBox from "../InputBox";
+import RightSide from "../Calculators/RightSide";
 
 const Ci = () => {
   const [principal, setPrincipal] = useState("");
@@ -44,61 +45,70 @@ const Ci = () => {
 
   return (
     <div className="w-full bg-gradient-to-r from-[#111111] to-[#0c0c0c] text-white px-4 sm:px-16 pt-8 pb-16">
-      <h1 className="font-semibold text-3xl text-white mb-4">
-        Compound Interest Calculator
-      </h1>
-      <div className="grid gap-6">
-        <InputBox
-          labelText="Principal Amount"
-          value={principal}
-          setValue={setPrincipal}
-          placeholder="$"
-          type="number"
-        />
-        <InputBox
-          labelText="Interest Rate (per annum)"
-          value={rate}
-          setValue={setRate}
-          placeholder="%"
-          type="number"
-        />
-        <InputBox
-          labelText="Time Period (in years)"
-          value={time}
-          setValue={setTime}
-          placeholder="Yr"
-          type="number"
-        />
-        <div className="flex flex-col">
-          <label className="text-xl" htmlFor="compoundingFrequency">
-            Compounding Frequency
-          </label>
-          <select
-            className="mt-3 outline-none w-[250px] px-3 py-2 rounded-md bg-[#2D2E2E]  text-white"
-            id="compoundingFrequency"
-            value={compoundingFrequency}
-            onChange={(e) => setCompoundingFrequency(e.target.value)}
-          >
-            <option value="quarterly">Quarterly</option>
-            <option value="semi-annually">Semi-Annually</option>
-            <option value="annually">Annually</option>
-          </select>
+      <div className="flex">
+        <div className="w-full lg:w-[50%]">
+          <h1 className="font-semibold text-3xl text-white mb-4">
+            Compound Interest Calculator
+          </h1>
+          <div className="grid gap-6">
+            <InputBox
+              labelText="Principal Amount"
+              value={principal}
+              setValue={setPrincipal}
+              placeholder="$"
+              type="number"
+            />
+            <InputBox
+              labelText="Interest Rate (per annum)"
+              value={rate}
+              setValue={setRate}
+              placeholder="%"
+              type="number"
+            />
+            <InputBox
+              labelText="Time Period (in years)"
+              value={time}
+              setValue={setTime}
+              placeholder="Yr"
+              type="number"
+            />
+            <div className="flex flex-col">
+              <label className="text-xl" htmlFor="compoundingFrequency">
+                Compounding Frequency
+              </label>
+              <select
+                className="mt-3 outline-none w-[250px] px-3 py-2 rounded-md bg-[#2D2E2E]  text-white"
+                id="compoundingFrequency"
+                value={compoundingFrequency}
+                onChange={(e) => setCompoundingFrequency(e.target.value)}
+              >
+                <option value="quarterly">Quarterly</option>
+                <option value="semi-annually">Semi-Annually</option>
+                <option value="annually">Annually</option>
+              </select>
+            </div>
+          </div>
+          <div className="mt-8">
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
+              onClick={calculateCompoundInterest}
+            >
+              Calculate
+            </button>
+          </div>
+          <div className="mt-8 mb-12">
+            <h2 className="text-lg text-white mb-2">
+              Principal Amount: $ {principal}
+            </h2>
+            <h2 className="text-lg text-white mb-2">Interest: $ {interest}</h2>
+            <h2 className="text-lg text-white">
+              Total Amount: $ {totalAmount}
+            </h2>
+          </div>
         </div>
-      </div>
-      <div className="mt-8">
-        <button
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-          onClick={calculateCompoundInterest}
-        >
-          Calculate
-        </button>
-      </div>
-      <div className="mt-8 mb-12">
-        <h2 className="text-lg text-white mb-2">
-          Principal Amount: $ {principal}
-        </h2>
-        <h2 className="text-lg text-white mb-2">Interest: $ {interest}</h2>
-        <h2 className="text-lg text-white">Total Amount: $ {totalAmount}</h2>
+
+        {/*  */}
+        <RightSide />
       </div>
     </div>
   );

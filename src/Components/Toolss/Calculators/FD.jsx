@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import InputBox from "../InputBox";
+import RightSide from "../Calculators/RightSide";
 
 const FD = () => {
   const [totalInvestment, setTotalInvestment] = useState("");
@@ -23,48 +24,56 @@ const FD = () => {
 
   return (
     <div className="w-full bg-gradient-to-r from-[#111111] to-[#0c0c0c] text-white px-4 sm:px-16 pt-8 pb-16">
-      <h1 className="font-semibold text-3xl text-white mb-4">
-        Fixed Deposit (FD) Calculator
-      </h1>
-      <div className="grid gap-6">
-        <InputBox
-          labelText="Total Investment"
-          value={totalInvestment}
-          setValue={setTotalInvestment}
-          placeholder="$"
-          type="number"
-        />
-        <InputBox
-          labelText="Rate of Interest (p.a)"
-          value={rateOfInterest}
-          setValue={setRateOfInterest}
-          placeholder="%"
-          type="number"
-        />
-        <InputBox
-          labelText="Time Period (Years)"
-          value={time}
-          setValue={setTime}
-          placeholder="Years"
-          type="number"
-        />
-      </div>
-      <div className="mt-8">
-        <button
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-          onClick={calculateFD}
-        >
-          Calculate
-        </button>
-      </div>
-      <div className="mt-8">
-        <h2 className="text-lg text-white mb-2">
-          Invested Amount: $ {investedAmount}
-        </h2>
-        <h2 className="text-lg text-white">Estimated Return: $ {estReturn}</h2>
-        <h2 className="text-lg mt-3 text-white mb-2">
-          Total Value: $ {investedAmount + estReturn}
-        </h2>
+      <div className="flex">
+        <div className="w-full lg:w-[50%]">
+          <h1 className="font-semibold text-3xl text-white mb-4">
+            Fixed Deposit (FD) Calculator
+          </h1>
+          <div className="grid gap-6">
+            <InputBox
+              labelText="Total Investment"
+              value={totalInvestment}
+              setValue={setTotalInvestment}
+              placeholder="$"
+              type="number"
+            />
+            <InputBox
+              labelText="Rate of Interest (p.a)"
+              value={rateOfInterest}
+              setValue={setRateOfInterest}
+              placeholder="%"
+              type="number"
+            />
+            <InputBox
+              labelText="Time Period (Years)"
+              value={time}
+              setValue={setTime}
+              placeholder="Years"
+              type="number"
+            />
+          </div>
+          <div className="mt-8">
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
+              onClick={calculateFD}
+            >
+              Calculate
+            </button>
+          </div>
+          <div className="mt-8">
+            <h2 className="text-lg text-white mb-2">
+              Invested Amount: $ {investedAmount}
+            </h2>
+            <h2 className="text-lg text-white">
+              Estimated Return: $ {estReturn}
+            </h2>
+            <h2 className="text-lg mt-3 text-white mb-2">
+              Total Value: $ {investedAmount + estReturn}
+            </h2>
+          </div>
+        </div>
+        {/* Right Side */}
+        <RightSide />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import InputBox from "../InputBox";
+import RightSide from "../Calculators/RightSide";
 
 const EMI = () => {
   const [loanAmount, setLoanAmount] = useState("");
@@ -29,48 +30,56 @@ const EMI = () => {
 
   return (
     <div className="w-full bg-gradient-to-r from-[#111111] to-[#0c0c0c] text-white px-4 sm:px-16 pt-8 pb-16">
-      <h1 className="font-semibold text-3xl text-white mb-4">EMI Calculator</h1>
-      <div className="grid gap-6">
-        <InputBox
-          labelText="Loan Amount"
-          value={loanAmount}
-          setValue={setLoanAmount}
-          placeholder="$"
-          type="number"
-        />
-        <InputBox
-          labelText="Interest Rate (%)"
-          value={interestRate}
-          setValue={setInterestRate}
-          placeholder="%"
-          type="number"
-        />
-        <InputBox
-          labelText="Loan Tenure (Years)"
-          value={loanTenure}
-          setValue={setLoanTenure}
-          placeholder="Years"
-          type="number"
-        />
-      </div>
-      <div className="mt-8">
-        <button
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-          onClick={calculateEMI}
-        >
-          Calculate
-        </button>
-      </div>
-      <div className="mt-8">
-        <h2 className="text-lg text-white">
-          Monthly EMI: ${Math.ceil(monthlyEMI)}
-        </h2>
-        <h2 className="text-lg text-white">
-          Total Interest: ${Math.ceil(totalInterest)}
-        </h2>
-        <h2 className="text-lg text-white">
-          Total Amount: ${Math.ceil(totalAmount)}
-        </h2>
+      <div className="flex">
+        <div className="w-full lg:w-[50%]">
+          <h1 className="font-semibold text-3xl text-white mb-4">
+            EMI Calculator
+          </h1>
+          <div className="grid gap-6">
+            <InputBox
+              labelText="Loan Amount"
+              value={loanAmount}
+              setValue={setLoanAmount}
+              placeholder="$"
+              type="number"
+            />
+            <InputBox
+              labelText="Interest Rate (%)"
+              value={interestRate}
+              setValue={setInterestRate}
+              placeholder="%"
+              type="number"
+            />
+            <InputBox
+              labelText="Loan Tenure (Years)"
+              value={loanTenure}
+              setValue={setLoanTenure}
+              placeholder="Years"
+              type="number"
+            />
+          </div>
+          <div className="mt-8">
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
+              onClick={calculateEMI}
+            >
+              Calculate
+            </button>
+          </div>
+          <div className="mt-8">
+            <h2 className="text-lg text-white">
+              Monthly EMI: ${Math.ceil(monthlyEMI)}
+            </h2>
+            <h2 className="text-lg text-white">
+              Total Interest: ${Math.ceil(totalInterest)}
+            </h2>
+            <h2 className="text-lg text-white">
+              Total Amount: ${Math.ceil(totalAmount)}
+            </h2>
+          </div>
+        </div>
+        {/* RightSide */}
+        <RightSide />
       </div>
     </div>
   );
