@@ -9,7 +9,7 @@ const Discover = () => {
   return (
     <div className="bg-gradient-to-r from-[#111111] to-[#0c0c0c] text-white px-2 sm:px-20 pt-8 w-[100%] pb-10">
       <div className="lg:flex flex-wrap">
-        {array.length ? (
+        {array && array.length ? (
           array.map((element, index) => (
             <DNewsCard
               key={index}
