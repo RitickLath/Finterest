@@ -7,7 +7,7 @@ const RightSide = () => {
   useEffect(() => {}, [array]);
   return (
     <div className="hidden lg:block text-white mt-4">
-      {array.length ? (
+      {array && array.length ? (
         <div>
           <NewsCard
             title={array[Math.floor(Math.random() * 10)].title}

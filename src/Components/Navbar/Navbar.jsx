@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrayContext } from "../../Layout";
 
 const Navbar = () => {
-  const { array, setArray } = useContext(ArrayContext);
+  const { setArray } = useContext(ArrayContext);
 
   const APICall = async () => {
     try {
@@ -25,13 +25,12 @@ const Navbar = () => {
     <div>
       {/* bg-gradient-to-r from-[#111111] to-[#0c0c0c] */}
       <div className="bg-black text-white flex items-center justify-between px-12 overflow-hidden">
+        {/* for all link apply hidden */}
         <img
-          className="w-[85px] py-2 mr-[25%] lg:mr-[30%]"
-          src="public\Images\logo.png"
+          className="w-[85px] aspect-square py-2 mr-[25%] lg:mr-[30%]"
+          src="\Images\Logo.png"
           alt=""
         />
-        {/* for all link apply hidden */}
-
         <Link className="px-2 sm:flex lg:flex md:flex" to="/explore">
           Explore
         </Link>
