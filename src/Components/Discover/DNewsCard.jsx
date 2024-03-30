@@ -10,7 +10,7 @@ const DNewsCard = ({
   image,
 }) => {
   return (
-    <div className="max-w-[500px] rounded overflow-hidden shadow-lg  border-[1px] border-gray-700 text-white m-4">
+    <div className="max-w-[550px] rounded overflow-hidden shadow-lg  border-[1px] border-gray-700 text-white m-4">
       <img className="w-full" src={image} alt={title} />
       <div className="px-6 pt-4 pb-0">
         <div className="font-bold text-white text-normal mb-2">
