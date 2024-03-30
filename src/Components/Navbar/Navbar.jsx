@@ -37,7 +37,7 @@ const Navbar = () => {
         </Link>
         <Link
           onClick={APICall}
-          className="px-2  hidden sm:flex lg:flex md:flex"
+          className="px-2 sm:flex lg:flex md:flex"
           to="/discover"
         >
           Discover
