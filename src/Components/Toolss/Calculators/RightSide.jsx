@@ -10,22 +10,22 @@ const RightSide = () => {
       {array && array.length ? (
         <div>
           <NewsCard
-            title={array[Math.floor(Math.random() * 10)].title}
-            description={array[Math.floor(Math.random() * 10)].description}
-            content={array[Math.floor(Math.random() * 10)].content}
-            url={array[Math.floor(Math.random() * 10)].url}
-            image={array[Math.floor(Math.random() * 10)].image}
-            publishedAt={array[Math.floor(Math.random() * 10)].publishedAt}
-            source={array[Math.floor(Math.random() * 10)].source}
+            title={array[Math.floor(Math.random() * 9)].title}
+            description={array[Math.floor(Math.random() * 9)].description}
+            content={array[Math.floor(Math.random() * 9)].content}
+            url={array[Math.floor(Math.random() * 9)].url}
+            image={array[Math.floor(Math.random() * 9)].image}
+            publishedAt={array[Math.floor(Math.random() * 9)].publishedAt}
+            source={array[Math.floor(Math.random() * 9)].source}
           />
           <NewsCard
-            title={array[Math.floor(Math.random() * 10)].title}
-            description={array[Math.floor(Math.random() * 10)].description}
-            content={array[Math.floor(Math.random() * 10)].content}
-            url={array[Math.floor(Math.random() * 10)].url}
-            image={array[Math.floor(Math.random() * 10)].image}
-            publishedAt={array[Math.floor(Math.random() * 10)].publishedAt}
-            source={array[Math.floor(Math.random() * 10)].source}
+            title={array[Math.floor(Math.random() * 9)].title}
+            description={array[Math.floor(Math.random() * 9)].description}
+            content={array[Math.floor(Math.random() * 9)].content}
+            url={array[Math.floor(Math.random() * 9)].url}
+            image={array[Math.floor(Math.random() * 9)].image}
+            publishedAt={array[Math.floor(Math.random() * 9)].publishedAt}
+            source={array[Math.floor(Math.random() * 9)].source}
           />
         </div>
       ) : (
