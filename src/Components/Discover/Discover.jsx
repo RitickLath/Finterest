@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import { ArrayContext } from "../../Layout";
 import DNewsCard from "./DNewsCard";
 
 const Discover = () => {
   const { array } = useContext(ArrayContext);
+  useEffect(() => {}, [array]);
 
   return (
     <div className="bg-gradient-to-r from-[#111111] to-[#0c0c0c] text-white px-2 sm:px-20 pt-8 w-[100%] pb-10">
