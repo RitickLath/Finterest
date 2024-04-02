@@ -16,6 +16,7 @@ import SI from "./Components/Toolss/Calculators/SI.jsx";
 import PPF from "./Components/Toolss/Calculators/PPF.jsx";
 import EMI from "./Components/Toolss/Calculators/EMI.jsx";
 import Sip from "./Components/Toolss/Calculators/Sip.jsx";
+import StockMarket from "./Components/StockMarket/StockMarket.jsx";
 
 const AppRouter = createBrowserRouter([
   {
@@ -24,11 +25,30 @@ const AppRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Explore />,
+
+        children: [
+          {
+            path: "",
+            element: <Explore />,
+          },
+          {
+            path: ":id",
+            element: <StockMarket />,
+          },
+        ],
       },
       {
         path: "/explore",
-        element: <Explore />,
+        children: [
+          {
+            path: "",
+            element: <Explore />,
+          },
+          {
+            path: ":id",
+            element: <StockMarket />,
+          },
+        ],
       },
       {
         path: "/discover",
