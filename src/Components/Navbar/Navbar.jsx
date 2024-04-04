@@ -3,25 +3,6 @@ import { Link } from "react-router-dom";
 import { ArrayContext } from "../../Layout";
 
 const Navbar = ({ isOpen, setIsOpen }) => {
-  const { setArray } = useContext(ArrayContext);
-  // const [isOpen, setIsOpen] = useState(false);
-
-  const APICall = async () => {
-    try {
-      const url =
-        "https://gnews.io/api/v4/search?q=stocks&lang=en&country=in&max=20&apikey=7a2023e067d4868c79baccd13cfcb3e2";
-      const response = await fetch(url);
-      if (!response.ok) {
-        console.log("Error i getting response");
-      }
-      const jsondata = await response.json();
-      setArray(jsondata.articles);
-      //console.log(jsondata.articles);
-    } catch (e) {
-      console.log("Error Occured: " + e);
-    }
-  };
-
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -72,7 +53,6 @@ const Navbar = ({ isOpen, setIsOpen }) => {
                 </Link>
                 <Link
                   onClick={() => {
-                    APICall();
                     toggleMenu();
                   }}
                   className="px-2 sm:flex lg:flex md:flex"
@@ -82,7 +62,6 @@ const Navbar = ({ isOpen, setIsOpen }) => {
                 </Link>
                 <Link
                   onClick={() => {
-                    APICall();
                     toggleMenu();
                   }}
                   className="px-2 relative sm:flex lg:flex md:flex"
@@ -116,18 +95,10 @@ const Navbar = ({ isOpen, setIsOpen }) => {
           <Link className="px-2 sm:flex lg:flex md:flex" to="/explore">
             Explore
           </Link>
-          <Link
-            onClick={APICall}
-            className="px-2 sm:flex lg:flex md:flex"
-            to="/discover"
-          >
+          <Link className="px-2 sm:flex lg:flex md:flex" to="/discover">
             Discover
           </Link>
-          <Link
-            onClick={APICall}
-            className="px-2 relative sm:flex lg:flex md:flex"
-            to="/tools"
-          >
+          <Link className="px-2 relative sm:flex lg:flex md:flex" to="/tools">
             Tools
           </Link>
           <Link className="px-2 hidden sm:flex lg:flex md:flex" to="/insights">

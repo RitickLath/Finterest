@@ -1,22 +1,40 @@
-import ReactDOM from "react-dom/client";
-import Layout from "./Layout.jsx";
+// React Hooks imports
+
 import "./index.css";
-import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import ReactDOM from "react-dom/client";
+
+// Normal component import
+import Layout from "./Layout.jsx";
 import Explore from "./Components/Explore/Explore.jsx";
-import Discover from "./Components/Discover/Discover.jsx";
-import { Tools } from "./Components/Toolss/Tools.jsx";
 import Insights from "./Components/Insights/Insights.jsx";
-import SIP from "./Components/Toolss/Calculators/Sip.jsx";
-import MF from "./Components/Toolss/Calculators/MF.jsx";
-import Gratuity from "./Components/Toolss/Calculators/Gratuity.jsx";
-import Inflation from "./Components/Toolss/Calculators/Inflation.jsx";
-import CI from "./Components/Toolss/Calculators/CI.jsx";
-import FD from "./Components/Toolss/Calculators/FD.jsx";
-import SI from "./Components/Toolss/Calculators/SI.jsx";
-import PPF from "./Components/Toolss/Calculators/PPF.jsx";
-import EMI from "./Components/Toolss/Calculators/EMI.jsx";
-import Sip from "./Components/Toolss/Calculators/Sip.jsx";
-import StockMarket from "./Components/StockMarket/StockMarket.jsx";
+
+// lazy loading of tools
+
+const MF = lazy(() => import("./Components/Toolss/Calculators/MF.jsx"));
+const Gratuity = lazy(() =>
+  import("./Components/Toolss/Calculators/Gratuity.jsx")
+);
+const Inflation = lazy(() =>
+  import("./Components/Toolss/Calculators/Inflation.jsx")
+);
+const CI = lazy(() => import("./Components/Toolss/Calculators/CI.jsx"));
+const FD = lazy(() => import("./Components/Toolss/Calculators/FD.jsx"));
+const SIP = lazy(() => import("./Components/Toolss/Calculators/Sip.jsx"));
+const SI = lazy(() => import("./Components/Toolss/Calculators/SI.jsx"));
+const PPF = lazy(() => import("./Components/Toolss/Calculators/PPF.jsx"));
+const EMI = lazy(() => import("./Components/Toolss/Calculators/EMI.jsx"));
+const Sip = lazy(() => import("./Components/Toolss/Calculators/Sip.jsx"));
+
+// Lazy Loaded component
+
+const Tools = lazy(() => import("./Components/Toolss/Tools.jsx"));
+const Discover = lazy(() => import("./Components/Discover/Discover.jsx"));
+const StockMarket = lazy(() =>
+  import("./Components/StockMarket/StockMarket.jsx")
+);
+// import StockMarket from "./Components/StockMarket/StockMarket.jsx";
 
 const AppRouter = createBrowserRouter([
   {
@@ -33,7 +51,11 @@ const AppRouter = createBrowserRouter([
           },
           {
             path: ":id",
-            element: <StockMarket />,
+            element: (
+              <Suspense fallback={<div></div>}>
+                <StockMarket />
+              </Suspense>
+            ),
           },
         ],
       },
@@ -52,7 +74,11 @@ const AppRouter = createBrowserRouter([
       },
       {
         path: "/discover",
-        element: <Discover />,
+        element: (
+          <Suspense fallback={<div></div>}>
+            <Discover />
+          </Suspense>
+        ),
       },
       {
         path: "/tools",
@@ -60,50 +86,94 @@ const AppRouter = createBrowserRouter([
         children: [
           {
             path: "",
-            element: <Tools />,
+            element: (
+              <Suspense fallback={<div></div>}>
+                <Tools />
+              </Suspense>
+            ),
           },
 
           {
             path: "sip",
-            element: <Sip />,
+            element: (
+              <Suspense fallback={<div></div>}>
+                <Sip />
+              </Suspense>
+            ),
           },
           {
             path: "mf",
-            element: <MF />,
+            element: (
+              <Suspense fallback={<div></div>}>
+                <MF />
+              </Suspense>
+            ),
           },
           {
             path: "ppf",
-            element: <PPF />,
+            element: (
+              <Suspense fallback={<div></div>}>
+                <PPF />
+              </Suspense>
+            ),
           },
           {
             path: "fd",
-            element: <FD />,
+            element: (
+              <Suspense fallback={<div></div>}>
+                <FD />
+              </Suspense>
+            ),
           },
           {
             path: "emi",
-            element: <EMI />,
+            element: (
+              <Suspense fallback={<div></div>}>
+                <EMI />
+              </Suspense>
+            ),
           },
           {
             path: "si",
-            element: <SI />,
+            element: (
+              <Suspense fallback={<div></div>}>
+                <SI />
+              </Suspense>
+            ),
           },
           {
             path: "ci",
-            element: <CI />,
+            element: (
+              <Suspense fallback={<div></div>}>
+                <CI />
+              </Suspense>
+            ),
           },
           {
             path: "gratuity",
-            element: <Gratuity />,
+            element: (
+              <Suspense fallback={<div></div>}>
+                <Gratuity />
+              </Suspense>
+            ),
           },
           {
             path: "inflation",
-            element: <Inflation />,
+            element: (
+              <Suspense fallback={<div></div>}>
+                <Inflation />
+              </Suspense>
+            ),
           },
         ],
       },
       {
         path: "/insights",
-        element: <Insights />,
+        element: (
+          <Suspense fallback={<div></div>}>
+            <Insights />
+          </Suspense>
+        ),
       },
       {
         path: "/signin",

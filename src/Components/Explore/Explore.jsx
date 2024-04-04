@@ -1,5 +1,6 @@
+import { Input } from "postcss";
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Explore = ({ isOpen, setIsOpen }) => {
   const navigate = useNavigate();
@@ -50,7 +51,15 @@ const Explore = ({ isOpen, setIsOpen }) => {
       <form
         onSubmit={(e) => {
           setStock(inputdata.current.value.toLowerCase());
-          navigate(`${inputdata.current.value.toLowerCase()}`);
+          suggestions.map((element) => {
+            if (
+              element.shortname.toLowerCase() ==
+              inputdata.current.value.toLowerCase()
+            ) {
+              navigate(`${element.symbol}`);
+            }
+          });
+          // navigate(`${inputdata.current.value.toLowerCase()}`);
           e.preventDefault();
         }}
         className="w-[100%] text-center"
@@ -70,10 +79,7 @@ const Explore = ({ isOpen, setIsOpen }) => {
         <datalist id="browsers">
           {suggestions &&
             suggestions.map((element) => (
-              <option
-                key={element.shortname}
-                value={element.shortname.toLowerCase()}
-              />
+              <option key={element.shortname} value={element.shortname} />
             ))}
         </datalist>
         <button type="submit" className="hidden"></button>
@@ -83,24 +89,42 @@ const Explore = ({ isOpen, setIsOpen }) => {
 
       <div>
         <div className="flex flex-wrap justify-center gap-2 sm:w-[80%] lg:w-[80%]">
-          <button className="px-2 py-1 border border-[white] rounded-md text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]">
+          <Link
+            to="/explore/TTM"
+            className="px-2 py-1 border border-[white] rounded-md text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]"
+          >
             Tata Motors
-          </button>
-          <button className="px-3 py-1 border border-[white] rounded-md border-1 text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]">
+          </Link>
+          <Link
+            to="/explore/INFY"
+            className="px-3 py-1 border border-[white] rounded-md border-1 text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]"
+          >
             Infosys
-          </button>
-          <button className="px-2 py-1 border border-[white] rounded-md border-1 text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]">
+          </Link>
+          <Link
+            to="/explore/HINDUNILVR"
+            className="px-2 py-1 border border-[white] rounded-md border-1 text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]"
+          >
             Hindustan Unilever
-          </button>
-          <button className="px-3 py-1 border border-[white] rounded-md border-1 text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]">
+          </Link>
+          <Link
+            to="/explore/RELIANCE"
+            className="px-3 py-1 border border-[white] rounded-md border-1 text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]"
+          >
             Reliance
-          </button>
-          <button className="px-3 py-1 border border-[white] rounded-md border-1 text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]">
+          </Link>
+          <Link
+            to="/explore/MARUTI"
+            className="px-3 py-1 border border-[white] rounded-md border-1 text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]"
+          >
             Maruti Suzuki
-          </button>
-          <button className="px-3 py-1 border border-[white] rounded-md border-1 text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]">
+          </Link>
+          <Link
+            to="/explore/HDFCBANK"
+            className="px-3 py-1 border border-[white] rounded-md border-1 text-gray-300 text-sm hover:bg-[#242424] hover:text-white focus:outline-none focus:border-[white]"
+          >
             HDFC Bank
-          </button>
+          </Link>
         </div>
       </div>
     </div>

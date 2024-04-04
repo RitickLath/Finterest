@@ -4,8 +4,25 @@ import { ArrayContext } from "../../Layout";
 import DNewsCard from "./DNewsCard";
 
 const Discover = () => {
-  const { array } = useContext(ArrayContext);
-  useEffect(() => {}, [array]);
+  const { array, setArray } = useContext(ArrayContext);
+  useEffect(() => {
+    const APICall = async () => {
+      try {
+        const url =
+          "https://gnews.io/api/v4/search?q=stocks&lang=en&country=in&max=20&apikey=7a2023e067d4868c79baccd13cfcb3e2";
+        const response = await fetch(url);
+        if (!response.ok) {
+          console.log("Error i getting response");
+        }
+        const jsondata = await response.json();
+        setArray(jsondata.articles);
+        //console.log(jsondata.articles);
+      } catch (e) {
+        console.log("Error Occured: " + e);
+      }
+    };
+    APICall();
+  }, []);
 
   return (
     <div className="bg-gradient-to-r from-[#111111] to-[#0c0c0c] text-white px-2 sm:px-20 pt-8 w-[100%] pb-10">
