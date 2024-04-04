@@ -9,7 +9,7 @@ import ReactDOM from "react-dom/client";
 import Layout from "./Layout.jsx";
 import Explore from "./Components/Explore/Explore.jsx";
 import Insights from "./Components/Insights/Insights.jsx";
-
+import StockMarket from "./Components/StockMarket/StockMarket.jsx";
 // lazy loading of tools
 
 const MF = lazy(() => import("./Components/Toolss/Calculators/MF.jsx"));
@@ -31,9 +31,7 @@ const Sip = lazy(() => import("./Components/Toolss/Calculators/Sip.jsx"));
 
 const Tools = lazy(() => import("./Components/Toolss/Tools.jsx"));
 const Discover = lazy(() => import("./Components/Discover/Discover.jsx"));
-const StockMarket = lazy(() =>
-  import("./Components/StockMarket/StockMarket.jsx")
-);
+
 // import StockMarket from "./Components/StockMarket/StockMarket.jsx";
 
 const AppRouter = createBrowserRouter([
@@ -51,11 +49,7 @@ const AppRouter = createBrowserRouter([
           },
           {
             path: ":id",
-            element: (
-              <Suspense fallback={<div></div>}>
-                <StockMarket />
-              </Suspense>
-            ),
+            element: <StockMarket />,
           },
         ],
       },

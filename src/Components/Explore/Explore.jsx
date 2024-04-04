@@ -50,17 +50,18 @@ const Explore = ({ isOpen, setIsOpen }) => {
       </p>
       <form
         onSubmit={(e) => {
-          setStock(inputdata.current.value.toLowerCase());
-          suggestions.map((element) => {
-            if (
-              element.shortname.toLowerCase() ==
-              inputdata.current.value.toLowerCase()
-            ) {
-              navigate(`${element.symbol}`);
-            }
-          });
-          // navigate(`${inputdata.current.value.toLowerCase()}`);
           e.preventDefault();
+          setStock(inputdata.current.value.toLowerCase());
+          suggestions &&
+            suggestions.map((element) => {
+              if (
+                element.shortname.toLowerCase() ==
+                inputdata.current.value.toLowerCase()
+              ) {
+                navigate(`${element.symbol}`);
+              }
+            });
+          navigate(`${inputdata.current.value}`);
         }}
         className="w-[100%] text-center"
         action=""
