@@ -1,12 +1,15 @@
 import { Input } from "postcss";
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import gsap from "gsap";
 
 const Explore = ({ isOpen, setIsOpen }) => {
   const navigate = useNavigate();
   const inputdata = useRef();
   const [stock, setStock] = useState("");
   const [suggestions, setSuggestion] = useState([]);
+  const ImageRef = useRef(null);
+  const [inputData, setInputData] = useState("");
 
   const fetchSuggestions = async () => {
     if (inputdata.current.value.length >= 2) {
@@ -21,21 +24,67 @@ const Explore = ({ isOpen, setIsOpen }) => {
       };
 
       try {
-        const response = await fetch(url + inputdata.current.value, options);
+        const response = await fetch(url + inputData, options);
         const data = await response.json();
         setSuggestion(data.quotes);
+        console.log("API call of suggetsion is made");
       } catch (e) {
         console.log("Error Occured in API Call " + e);
       }
     }
   };
 
+  const HandleNavigate = (e) => {
+    e.preventDefault();
+    setStock(inputdata.current.value.toLowerCase());
+    suggestions &&
+      suggestions.map((element) => {
+        if (
+          element.shortname.toLowerCase() ==
+          inputdata.current.value.toLowerCase()
+        ) {
+          navigate(`${element.symbol}`);
+        }
+      });
+    navigate(`${inputdata.current.value}`);
+  };
+
+  useEffect(() => {
+    inputdata.current.focus();
+  }, []);
+
+  useEffect(() => {
+    // Calculate the starting position based on the screen width
+    gsap.from(".img", {
+      x: -1000, // Start position: move from the middle of the screen
+      duration: 1,
+      delay: 1,
+      scale: -1,
+    });
+
+    gsap.to(".img", {
+      x: 0, // Start position: move from the middle of the screen
+      duration: 1,
+      delay: 1,
+      scale: 1,
+    });
+  }, []);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      fetchSuggestions();
+    }, 1000);
+
+    return () => clearTimeout(timeoutId);
+  }, [inputData]);
+
   return (
     <div
       className={`overflow-hidden flex flex-col pt-8 lg:pt-12 items-center justify-center bg-gradient-to-r from-[#111111] to-[#0c0c0c] text-white px-4 w-[100%] pb-16 `}
     >
       <img
-        className="w-[100%] sm:w-[90%] md:w-[70%] lg:w-[40%]"
+        ref={ImageRef}
+        className="img w-[100%] sm:w-[90%] md:w-[70%] lg:w-[40%]"
         src="\Images\Finterest.png"
         alt=""
       />
@@ -49,26 +98,13 @@ const Explore = ({ isOpen, setIsOpen }) => {
         stock.
       </p>
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          setStock(inputdata.current.value.toLowerCase());
-          suggestions &&
-            suggestions.map((element) => {
-              if (
-                element.shortname.toLowerCase() ==
-                inputdata.current.value.toLowerCase()
-              ) {
-                navigate(`${element.symbol}`);
-              }
-            });
-          navigate(`${inputdata.current.value}`);
-        }}
+        onSubmit={HandleNavigate}
         className="w-[100%] text-center"
         action=""
       >
         <input
           list="browsers"
-          onChange={fetchSuggestions}
+          onChange={(e) => setInputData(e.target.value)}
           ref={inputdata}
           className="bg-[#242424] outline-none w-[100%] sm:w-[90%] md:w-[70%] lg:w-[50%] mb-6 px-4 py-3 rounded-md"
           type="text"
