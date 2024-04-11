@@ -36,17 +36,18 @@ const Explore = ({ isOpen, setIsOpen }) => {
 
   const HandleNavigate = (e) => {
     e.preventDefault();
-    setStock(inputdata.current.value.toLowerCase());
-    suggestions &&
-      suggestions.map((element) => {
-        if (
-          element.shortname.toLowerCase() ==
-          inputdata.current.value.toLowerCase()
-        ) {
-          navigate(`${element.symbol}`);
-        }
-      });
-    navigate(`${inputdata.current.value}`);
+    const inputValue = inputdata.current.value.toLowerCase();
+    if (suggestions && suggestions.length > 0) {
+      const matchedElement = suggestions.find(
+        (element) => element.shortname.toLowerCase() === inputValue
+      );
+      if (matchedElement) {
+        navigate(`${matchedElement.symbol}`);
+      }
+    } else {
+      // Navigate with the input value if no match is found
+      alert("No Such Stock Exists of API Limit is crossed");
+    }
   };
 
   useEffect(() => {

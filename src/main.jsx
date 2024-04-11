@@ -41,11 +41,12 @@ const AppRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-
+        element: <Explore />,
         children: [
           {
             path: "",
             element: <Explore />,
+            index: true,
           },
           {
             path: ":id",
